@@ -57,6 +57,5 @@ public class Settings {
 
     public String getLastSymlink() { return lastSymlink; }
 
-
     public String getLastTarget() { return lastTarget; }
 }

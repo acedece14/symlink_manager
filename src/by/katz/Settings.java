@@ -16,6 +16,8 @@ public class Settings {
 
     public static Settings get() { return instance == null ? instance = new Settings() : instance; }
 
+    public static void init() { get().loadSettings(); }
+
     public synchronized void saveSettings() {
         try (var fw = new FileWriter(SETTINGS_FILE)) {
             fw.write(new GsonBuilder().setPrettyPrinting().create().toJson(this));

@@ -62,9 +62,10 @@ public class FormMain extends JFrame {
         var res = dialog.showDialog(FormMain.this, "OK");
         Settings.get().setLastDirectory(dialog.getCurrentDirectory().getAbsolutePath());
         if (res == JFileChooser.APPROVE_OPTION) {
-            edtSymlinkPath.setText(dialog.getSelectedFile().getAbsolutePath());
-            formListener.onDirSelected(dialog.getSelectedFile());
-            Settings.get().setLastSymlink(dialog.getSelectedFile().getAbsolutePath());
+            var selectedFile = dialog.getSelectedFile();
+            edtSymlinkPath.setText(selectedFile.getAbsolutePath());
+            formListener.onDirSelected(selectedFile);
+            Settings.get().setLastSymlink(selectedFile.getAbsolutePath());
         }
     }
 
